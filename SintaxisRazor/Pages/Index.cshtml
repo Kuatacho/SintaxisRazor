@@ -1,0 +1,56 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bienvenido</h1>
+    <p>HOLA MUNDO!!</p>
+    <p>La hora actual es: @DateTime.Now</p> 
+    <p>La anterior semana esta hora: @(DateTime.Now-TimeSpan.FromDays(7))</p> 
+    @{
+        string msg = "El futuro es hoy viejo";
+    }
+    <p>@msg</p>
+
+    @{
+        msg = "Oiste viejo";
+    }
+    <p>@msg</p>
+
+    @{
+        void RenderNombre(string nombre)
+        {
+            <p>Nombre: <strong>@nombre</strong></p>
+        }
+        RenderNombre("Victor Chavez");
+        RenderNombre("Sebas Chavez");
+    }
+
+    @{
+        string ConvertirEnMayusculas(string valor)
+        {
+            return valor.ToUpper();
+        }
+    }
+
+    <h2>Convertir en Mayusculas-> @ConvertirEnMayusculas("juan pedro")</h2></br>
+
+
+    @{
+        int valor = 17;
+    }
+    @if(valor % 2 == 0)
+    {
+        <h3>El Numero es PAR</h3>
+    }
+    else
+    {
+        <h3>El Numero es IMPAR</h3>
+    }
+
+
+
+
+</div>
