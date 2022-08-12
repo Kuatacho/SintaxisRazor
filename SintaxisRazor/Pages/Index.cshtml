@@ -22,7 +22,7 @@
     @{
         void RenderNombre(string nombre)
         {
-            <p>Nombre: <strong>@nombre</strong></p>
+                <p>Nombre: <strong>@nombre</strong></p>
         }
         RenderNombre("Victor Chavez");
         RenderNombre("Sebas Chavez");
@@ -48,6 +48,59 @@
     else
     {
         <h3>El Numero es IMPAR</h3>
+    }
+
+    @{
+        valor = 2;
+    }
+    @switch (valor)
+    {
+        case 1:
+            <p>El Valor es 1</p>
+            break;
+        case 2:
+            <p>El valor es 2</p>
+            break;
+        default:
+            <p>Su numero no es 1. ni 2</p>
+            break;
+    }
+
+
+    @{
+        var nombres = new List<string>() { "Hugo", "Paco", "Luis" };
+    }
+    <ul>
+    @for (var i = 0; i < nombres.Count; i++)
+    {
+        <li>@nombres[i]</li>
+    }
+    </ul>
+     
+
+    @{
+        nombres = new List<string>() { "Victor", "Pepe", "Juan" };
+        var j = 0;
+    }
+    <ol>
+        @while (j < nombres.Count)
+        {
+            <li>@nombres[j]</li>
+            j++;
+        }
+    </ol>
+
+    @try
+    {
+        throw new InvalidOperationException("Hiciste algo no valido");
+    }
+    catch (Exception ex)
+    {
+        <p>el mensaje de la excepciones es:@ex.Message</p>
+    }
+    finally
+    {
+        <p>Bloque que siempre se ejecuta!</p>
     }
 
 
